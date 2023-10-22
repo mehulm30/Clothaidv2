@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class scenechanger {
 
-    public static void changeScene(ActionEvent event, String fxmlFile, String Title, String name)
+    public static void changeScene(ActionEvent event, String fxmlFile, String Title)
     {
         Parent root = null;
         try{
