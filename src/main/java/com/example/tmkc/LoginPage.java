@@ -45,7 +45,8 @@ public class LoginPage implements Initializable {
     }
         @FXML
     public void setBt_SignUp(ActionEvent event){
-        scenechanger.changeScene(event,"signup.fxml","Sign Up");
+
+        scenechanger.changeScene(event,"SignupPage.fxml","Sign Up");
 
     }
 }

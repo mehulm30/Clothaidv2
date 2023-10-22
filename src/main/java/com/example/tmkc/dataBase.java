@@ -6,70 +6,21 @@ import javafx.scene.control.Alert;
 import java.sql.*;
 
 public class dataBase {
-    String lol;
-    public static void signUpUser(ActionEvent event, String username, String password, String name, String address) {
-        Connection connection = null;
-        PreparedStatement psInsert = null;
-        PreparedStatement psCheckUserExists = null;
-        ResultSet resultSet = null;
+    private String Cloth_Type;
 
-        try {
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/clothaid", "root", "");
-            psCheckUserExists = ((java.sql.Connection) connection).prepareStatement("SELECT * FROM user_acc WHERE username = ?");
-            psCheckUserExists.setString(1, username);
-            resultSet = psCheckUserExists.executeQuery();
-            if (resultSet.isBeforeFirst()) {
-                System.out.println("User Already Exists !!");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("You cannot use this username");
-                alert.show();
-            } else {
-                psInsert = ((java.sql.Connection) connection).prepareStatement("INSERT INTO user_acc VALUES('" + username + "','" + name + "','" + password + "','" + address + "');");
-                psInsert.executeUpdate();
-//                connection=null;
-                HomePage.getUsername=username;
-                scenechanger.changeScene(event, "Home.fxml", "Home");
+    public static String user = null;
+    public static String mail = null;
+    public String pass;
 
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (psCheckUserExists != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (psInsert != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-//
+
+    //
     public static void loginUser(ActionEvent event, String username, String password) {
         Connection connection = null;
-//        HomePage home =null;
         PreparedStatement preparedStatement = null;
-        PreparedStatement setprepareName = null;
-        ResultSet resultSetName = null;
-//        Connection conSetName = null;
         ResultSet resultSet = null;
         try {
             connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/clothaid", "root", "");
-            preparedStatement = ((java.sql.Connection) connection).prepareStatement("SELECT password FROM user_acc WHERE username = '"+username+"'");
+            preparedStatement = ((java.sql.Connection) connection).prepareStatement("SELECT password FROM user_acc WHERE username = '" +username+"'");
             resultSet = preparedStatement.executeQuery();
 
 
@@ -82,8 +33,8 @@ public class dataBase {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getNString("password");
                     if (retrievedPassword.equals(password)) {
-                        connection=null;
-                        HomePage.getUsername=username;
+                        connection = null;
+                        HomePage.getUsername = username;
                         scenechanger.changeScene(event, "Home.fxml", "ClothAid");
 
                     } else {
@@ -97,8 +48,7 @@ public class dataBase {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
@@ -123,5 +73,27 @@ public class dataBase {
         }
 
 
+    }
+
+    public static void setCloth_Type(ActionEvent event, String username, String cloth_Type,String date,String method , String address) {
+        Connection connection=null;
+        PreparedStatement psDonate = null;
+        ResultSet resultDonate = null;
+        try{
+            int id =1;
+            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/clothaid", "root", "");
+            String insertQuery = "INSERT INTO clothdb (id,username, cloth_type,capital,book_date,address) VALUES (?, ?, ?, ?, ?, ?);";
+            psDonate = ((Connection) connection).prepareStatement(insertQuery);
+            psDonate.setInt(1, id);
+            psDonate.setString(2, username);
+            psDonate.setString(3, cloth_Type);
+            psDonate.setString(4, method);
+            psDonate.setString(5, date);
+            psDonate.setString(6, address);
+            psDonate.executeUpdate();
+            id=id+1;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
