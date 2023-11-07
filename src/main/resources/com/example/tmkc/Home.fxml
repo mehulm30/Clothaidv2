@@ -12,19 +12,19 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: FFFCF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tmkc.HomePage">
    <top>
-      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: EB5E28;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="80.0" prefWidth="850.0" style="-fx-background-color: EB5E28;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="281.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="387.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="About Us" textFill="WHITE">
+            <Button layoutX="387.0" layoutY="25.0" mnemonicParsing="false" onAction="#setAbout" style="-fx-background-color: transparent;" text="About Us" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="526.0" layoutY="25.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Contact Us" textFill="WHITE">
+            <Button layoutX="526.0" layoutY="25.0" mnemonicParsing="false" onAction="#setContact" style="-fx-background-color: transparent;" text="Contact Us" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -34,8 +34,8 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Circle fill="WHITE" layoutX="43.0" layoutY="35.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="51.0" fitWidth="39.0" layoutX="24.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <Circle fill="WHITE" layoutX="50.0" layoutY="42.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="63.0" fitWidth="51.0" layoutX="24.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img.png" />
                </image>
@@ -46,28 +46,34 @@
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="850.0" style="-fx-background-color: FFFCF2;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" layoutX="634.0" layoutY="193.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="127.0" style="-fx-background-color: EB5E28;" text="Book Now--&gt;" textAlignment="CENTER" textFill="WHITE" />
-            <Label layoutX="35.0" layoutY="54.0" prefHeight="50.0" prefWidth="338.0" text="Welcome" textFill="#d19973">
+            <Label fx:id="wel_label" layoutX="35.0" layoutY="54.0" prefHeight="50.0" prefWidth="338.0" text="Welcome" textFill="#d19973">
                <font>
-                  <Font name="Lucida Sans Unicode" size="22.0" />
+                  <Font name="Lucida Sans Unicode" size="27.0" />
                </font>
             </Label>
-            <Text layoutX="14.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donating your clothing is a simple and effective way to support people living in and around your community. Donated items sold in thrift stores are much cheaper and more affordable for those that need them. Your donated clothing might also be used to help those with disabilities, disaster victims, veterans, and so many more people in need." wrappingWidth="341.60003662109375" AnchorPane.bottomAnchor="207.18359375" />
-            <Text fill="#ef8354" layoutX="33.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothing Donation" wrappingWidth="249.3250732421875">
+            <Text layoutX="21.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Donating your clothing is a simple and effective way to support people living in and around your community. Donated items sold in thrift stores are much cheaper and more affordable for those that need them. Your donated clothing might also be used to help those with disabilities, disaster victims, veterans, and so many more people in need." wrappingWidth="405.60003662109375" AnchorPane.bottomAnchor="198.4794921875">
                <font>
-                  <Font name="Lucida Sans Demibold Italic" size="23.0" />
+                  <Font size="15.0" />
+               </font></Text>
+            <Text fill="#ef8354" layoutX="30.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clothing Donation" wrappingWidth="347.72509765625">
+               <font>
+                  <Font name="Lucida Sans Demibold Italic" size="33.0" />
                </font>
             </Text>
-            <ImageView fitHeight="172.0" fitWidth="283.0" layoutX="532.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="304.0" fitWidth="462.0" layoutX="391.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@homebg.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="117.0" fitWidth="192.0" layoutX="117.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="163.0" fitWidth="186.0" layoutX="77.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@homebg2.png" />
                </image>
             </ImageView>
+            <Button alignment="CENTER" layoutX="602.0" layoutY="104.0" mnemonicParsing="false" onAction="#setBook" prefHeight="61.0" prefWidth="174.0" style="-fx-background-color: ED833E; -fx-background-radius: 40;" text="Book Now--&gt;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="20.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </left>
