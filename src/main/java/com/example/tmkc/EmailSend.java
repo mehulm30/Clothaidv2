@@ -13,8 +13,8 @@ public class EmailSend {
         String to = email;
 
         // Sender's email address and password
-        final String from = "clothaid2@gmail.com";
-        final String password = "ifqq dtwr fyzb rktq";
+        final String from = "clothaid23@gmail.com";
+        final String password = "cqcz jgel qlif crws";
 
         // Setup mail properties
         Properties properties = new Properties();
